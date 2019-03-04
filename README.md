@@ -8,6 +8,7 @@
 6. Avoid inclusion of intermediate files, or larger files, in this repo.
 7. But include automation of the installation process for tools that are part of the data path.
 ##### First Steps #####
+1. I've had so much trouble with module loading in js, and dealing with ES5 vs ES6 compatability, I want to get new instances of babel an webpack working. This will let me know that I can do it again next time. (babel and webpack config require initial config that I had to learn by trial and error).
 1. The regional subsets of OSM vector tiles will initially be based upon the 2017 planet vector file (55 GB).
 2. Script written to fine tune the process for just one small region.
 3. Then the process can be increased to create first release of the 2017 data for all of the regions.
