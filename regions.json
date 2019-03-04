@@ -1,0 +1,80 @@
+{"regions": {
+"min":{
+  "west" : "-122.24",
+  "south" : "37.23",
+  "east" : "-121.60",
+  "north" : "37.45",
+  "title" : "No Details",
+  "filename" : "en-osm-omt-min",
+  "url" : "http://download.iiab.io/content/OSM/vector-tiles/en-osm-omt-min.zip",
+  "seq" : 10,
+  "size" : "1497624576"
+},
+"world":{
+  "west" : "-180",
+  "south" : "-80",
+  "east" : "180",
+  "north" : "80",
+  "title" : "Detailed World",
+  "filename" : "en-osm-omt-min",
+  "url" : "http://download.iiab.io/content/OSM/vector-tiles/en-osm-omt-min.zip",
+  "seq" : 90,
+  "size" : "54776152064"
+},
+"south_america":{
+  "west" : "-84.73",
+  "south" : "-60.44",
+  "east" : "-31.61",
+  "north" : "12.72",
+  "title" : "South America",
+  "filename" : "en-osm-omt-south-america",
+  "url" : "http://download.iiab.io/content/OSM/vector-tiles/en-osm-omt-min.zip",
+  "seq" : 20,
+  "size" : "3112968192"
+},
+"central_america":{
+  "west" : "-119.15",
+  "south" : "7.93",
+  "east" : "-56.99",
+  "north" : "33.03",
+  "title" : "Central America",
+  "filename" : "en-osm-omt-central-america",
+  "url" : "http://download.iiab.io/content/OSM/vector-tiles/en-osm-omt-min.zip",
+  "seq" : 15,
+  "size" : "430280704"
+},
+"africa":{
+  "west" : "-23.58",
+  "south" : "-39.32",
+  "east" : "63.56",
+  "north" : "38.23",
+  "title" : "Africa",
+  "filename" : "en-osm-omt-africa",
+  "url" : "http://download.iiab.io/content/OSM/vector-tiles/en-osm-omt-min.zip",
+  "seq" : 50,
+  "size" : "4842811392"
+},
+"southeast_asia":{
+  "west" : "61.33",
+  "south" : "-10.19",
+  "east" : "165.77",
+  "north" : "46.41",
+  "title" : "Southeast Asia",
+  "filename" : "en-osm-omt-southease-asia",
+  "url" : "http://download.iiab.io/content/OSM/vector-tiles/en-osm-omt-min.zip",
+  "seq" : 60,
+  "size" : "6324658176"
+},
+"australia":{
+  "west" : "106.02",
+  "south" : "-52.84",
+  "east" : "196.56",
+  "north" : "-6.52",
+  "title" : "Australia",
+  "filename" : "en-osm-omt-australia",
+  "url" : "http://download.iiab.io/content/OSM/vector-tiles/en-osm-omt-min.zip",
+  "seq" : 80,
+  "size" : "1638526976"
+}
+}
+}

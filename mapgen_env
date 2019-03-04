@@ -1,0 +1,11 @@
+# included by all the scripts in  mapgen
+
+# where to put large files
+MG_LARGE_DISK=/hd/mapgen
+mkdir -p MG_LARGE_DISK
+
+# the speed of SSD's is needed for map work
+MG_SSD=/root/mapgen
+mkdir -p MG_SSD
+
+
