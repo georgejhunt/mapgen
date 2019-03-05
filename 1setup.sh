@@ -1,8 +1,18 @@
 #!/bin/bash -x
 # Set up babel and webpack
 
-# first grab the local environment for mapgen
-source mapgen_env
+# first check that the environment has been set
+MG=${MG_SSD}
+if [ "$MG" == "" ];then
+   echo "Have you set the environment variables via './setenv'"
+   exit 1
+fi
+
+# set up the output/input directors for pipeline
+mkdir -p $MG_HARD_DISK/output/stage1
+mkdir -p $MG_HARD_DISK/output/stage2
+mkdir -p $MG_HARD_DISK/output/stage3
+mkdir -p $MG_HARD_DISK/output/stage4
 
 which node
 if [ $? -ne 0 ]; then
@@ -12,44 +22,44 @@ fi
 
 # make sure that babel is installed and configured
 #
-if [ ! -d "$MG_SSD/babel/node_modules" ];then
-  mkdir -p "$MG_SSD"/babel
+if [ ! -d $MG_SSD/babel/node_modules ];then
+  mkdir -p $MG_SSD/babel
   cd $MG_SSD/babel
   npm init -y
   npm install --save-dev babel-cli
-  mkdir -p src dest
-  read -p "add a line to package.json scripts tag: \"build:babel src dest\"" dummy
+  mkdir -p ../src ../dest
+  sed -i /.*test.*/a\      "build": "babel ../src ../dest" $MG_SSD/babel/package.json
   npm install --save-dev babel-preset-env 
-  cat <EOF>$MG_SSD/.babelrc
-# https://www.sitepoint.com/babel-beginners-guide/
-# http://ccoenraets.github.io/es6-tutorial/setup-babel/
+  cat <<EOF >$MG_SSD/.babelrc
 {
   "presets": ["env"]
 }
 EOF
-
+# https://www.sitepoint.com/babel-beginners-guide/
+# http://ccoenraets.github.io/es6-tutorial/setup-babel/
 fi
+
 # make sure that webpack is installed and configured
-if [ ! -d "$MG_SSD/webpack/node_modules" ];then
-  mkdir -p "$MG_SSD"/webpack
-  cd $MG_SSD/webpack
+if [ ! -d "$MG_SSD/pack/node_modules" ];then
+  mkdir -p $MG_SSD/pack
+  cd $MG_SSD/pack
   npm init -y
-  npm install --save-dev babel-loader webpack
+  npm install --save-dev webpack babel-loader
 # add the following to package.json
 #"scripts": {
 #    "babel": "babel --presets es2015 js/main.js -o build/main.bundle.js",
 #    "start": "http-server",
 #    "webpack": "webpack"
 
-  cat <EOF.$MG_SSD/webpack.config.js
+    cat <<'EOF' >$MG_SSD/pack/webpack.config.js
  var path = require('path');
  var webpack = require('webpack');
 
  module.exports = {
-     entry: './js/main.js',
+     entry: '../src/map.js',
      output: {
-         path: path.resolve(__dirname, 'build'),
-         filename: 'main.bundle.js'
+         path: path.resolve(__dirname, '../dest/build'),
+         filename: 'map.bundle.js'
      },
      module: {
          loaders: [
@@ -70,3 +80,20 @@ if [ ! -d "$MG_SSD/webpack/node_modules" ];then
 EOF
 # http://ccoenraets.github.io/es6-tutorial/setup-webpack/
 fi
+
+# the extract program is in github owned by openmmaptiles
+if [ ! -d $MG_SSD/extracts ]; then
+   git clone https://github.com/openmaptiles/extracts
+fi
+
+# The extract program requires tilelive from mapbox
+if [ ! -d $MG_SSD/tilelive/node_modules ]; then
+   mkdir -p $MG_SSD/tilelive
+   cd $MG_SSD/tilelive
+   npm init -y
+   npm install --save-dev @mapbox/tilelive
+   npm install --save-dev @mapbox/mbtiles
+fi
+# create the csv file which is the spec for the regional extract stage2
+$MG_SSD/mkcsv.py
+
