@@ -83,7 +83,7 @@ fi
 
 # the extract program is in github owned by openmmaptiles
 if [ ! -d $MG_SSD/extracts ]; then
-   git clone https://github.com/openmaptiles/extracts
+   git clone https://github.com/georgejhunt/extracts -b iiab
 fi
 
 # The extract program requires tilelive from mapbox
