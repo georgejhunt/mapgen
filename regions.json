@@ -10,6 +10,42 @@
   "seq" : 10,
   "size" : "1497624576"
 },
+"europe":{
+  "west" : "-24.1",
+  "south" : "35.9",
+  "east" : "50.3",
+  "north" : "71.4",
+  "title" : "Europe",
+  "filename" : "en-osm-omt-europe",
+  "url" : "http://download.iiab.io/content/OSM/vector-tiles/en-osm-omt-min.zip",
+  "seq" : 45,
+  "perma_ref" : "en-osm-omt-min",
+  "size" : "54776152064"
+},
+"north_america":{
+  "west" : "-169.3",
+  "south" : "24.7",
+  "east" : "-51.1",
+  "north" : "71.4",
+  "title" : "North America",
+  "filename" : "en-osm-omt-north-america",
+  "url" : "http://download.iiab.io/content/OSM/vector-tiles/en-osm-omt-min.zip",
+  "seq" : 25,
+  "perma_ref" : "en-osm-omt-min",
+  "size" : "54776152064"
+},
+"asia":{
+  "west" : "28.0",
+  "south" : "36.8",
+  "east" : "191",
+  "north" : "77.6",
+  "title" : "Asia",
+  "filename" : "en-osm-omt-asia",
+  "url" : "http://download.iiab.io/content/OSM/vector-tiles/en-osm-omt-min.zip",
+  "seq" : 50,
+  "perma_ref" : "en-osm-omt-min",
+  "size" : "54776152064"
+},
 "world":{
   "west" : "-180",
   "south" : "-80",
@@ -54,7 +90,7 @@
   "title" : "Africa",
   "filename" : "en-osm-omt-africa",
   "url" : "http://download.iiab.io/content/OSM/vector-tiles/en-osm-omt-min.zip",
-  "seq" : 50,
+  "seq" : 40,
   "perma_ref" : "en-osm-omt-min",
   "size" : "4842811392"
 },

@@ -4,13 +4,16 @@
 # this must be run thusly from the command line before working on mapgen
 # thusly: "source setenv"
 
-MG_SSD=$MG_SSD
+MG_SSD=/mnt/ssd/ghunt/mapgen
 export MG_SSD
+mkdir -p MG_SSD
 
-MG_HARD_DISK=$MG_HARD_DISK
+# where to put large files
+MG_HARD_DISK=/mnt/ssd/ghunt/mapgen
 export MG_HARD_DISK
+mkdir -p MG_HARD_DISK
 
-PLANET_MBTILES=$MG_HARD_DISK/output/osm-2017-07-03-v3.6.1-planet.mbtiles
+PLANET_MBTILES=$MG_HARD_DISK/output/2017-07-03_planet_z0_z14.mbtiles
 export PLANET_MBTILES
 
 CSV_FILE=$MG_HARD_DISK/output/stage1/iiab.csv
@@ -19,21 +22,14 @@ export CSV_FILE
 BASE_ZOOM="9"
 export BASE_ZOOM
 
-PATH=$PATH:$MG_SSD/tilelive/node_modules/@mapbox/tilelive/bin
-export PATH
-
-# where to put large files
-MG_HARD_DISK=/hd/mapgen
-export MG_HARD_DISK
-mkdir -p MG_HARD_DISK
+echo $PATH | grep tilelive > /dev/null
+if [ $? -ne 0 ]; then
+   PATH=$MG_SSD/tilelive/node_modules/@mapbox/tilelive/bin:$PATH
+   export PATH
+fi
 
 # the speed of SSD's is needed for map work
 
-MG_SSD=/root/mapgen
-#MG_SSD=/hd/mapgen
-export MG_SSD
-mkdir -p MG_SSD
-
 # for testing, hand generated, in prodution, derived from regions.json
-REGION_LIST=$(cat $MG_HARD_DISK/output/stage1/region.list)
+REGION_LIST=$(cat $MG_SSD/region.list)
 export REGION_LIST
