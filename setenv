@@ -4,12 +4,14 @@
 # this must be run thusly from the command line before working on mapgen
 # thusly: "source setenv"
 
-MG_SSD=/mnt/ssd/ghunt/mapgen
+#MG_SSD=/mnt/ssd/ghunt/mapgen
+MG_SSD=/root/mapgen
 export MG_SSD
 mkdir -p MG_SSD
 
 # where to put large files
-MG_HARD_DISK=/mnt/ssd/ghunt/mapgen
+#MG_HARD_DISK=/mnt/ssd/ghunt/mapgen
+MG_HARD_DISK=/root/mapgen
 export MG_HARD_DISK
 mkdir -p MG_HARD_DISK
 

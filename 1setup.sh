@@ -4,7 +4,7 @@
 # first check that the environment has been set
 MG=${MG_SSD}
 if [ "$MG" == "" ];then
-   echo "Have you set the environment variables via './setenv'"
+   echo "Have you set the environment variables via 'source ./setenv'"
    exit 1
 fi
 
@@ -96,4 +96,5 @@ if [ ! -d $MG_SSD/tilelive/node_modules ]; then
 fi
 # create the csv file which is the spec for the regional extract stage2
 $MG_SSD/mkcsv.py
+$MG_SSD/mkjson.py > $MG_HARD_DISK/bboxes.geojson
 
