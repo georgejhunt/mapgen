@@ -6,13 +6,15 @@
 scriptdir=`dirname "$(readlink -f "$0")"`
 
 #prefix=./
+if [ "$MG_HARD_DISK" == "" ];then
+   echo "Have you run the 'source ./setenv' which will define config?"
+   exit 1
+fi
 prefix=$MG_HARD_DISK/output/stage3/fromscratch
-
-# this OSM package includes a small detailed region of the planet that
-#   can be modified via the following
-detail_mbtiles=2017-07-03_california_san-francisco-bay.mbtiles
-base_mbtiles=2017-07-03_osm_z0-10_planet.mbtiles
-# the above available at http://download.iiab.io/packages/OSM/
+read -p "Working directory is $prefix. Is that correct?" dummy
+if [ $dummy != "y" ];then
+   exit 1
+fi
 
 # create a place to put accumulations of resources
 mkdir -p $prefix/assets/fonts
@@ -83,18 +85,9 @@ sqlite3 cities1000.sqlite < mkfeatures.sql
 $prefix/build/geodb.pl
 cp cities1000.sqlite ..
 
-cd $prefix
-if [ ! -f $detail_mbtiles ]; then
-wget  http://download.iiab.io/packages/OSM/$detail_mbtiles
-fi
-if [ ! -f $base_mbtiles ]; then
-wget  http://download.iiab.io/packages/OSM/$base_mbtiles
-fi
 if [ ! -f ocean.mbtiles ]; then
 wget  http://download.iiab.io/packages/OSM/ocean.mbtiles
 fi
 
-ln -sf ./$detail_mbtiles detail.mbtiles
-ln -sf ./$base_mbtiles base.mbtiles
 
 cp $prefix/build/osm-bright-gl-style/sprite* $prefix/assets

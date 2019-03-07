@@ -4,14 +4,15 @@
 # this must be run thusly from the command line before working on mapgen
 # thusly: "source setenv"
 
-#MG_SSD=/mnt/ssd/ghunt/mapgen
-MG_SSD=/root/mapgen
+
+MG_SSD=/mnt/ssd/ghunt/mapgen
+#MG_SSD=/root/mapgen
 export MG_SSD
 mkdir -p MG_SSD
 
 # where to put large files
-#MG_HARD_DISK=/mnt/ssd/ghunt/mapgen
-MG_HARD_DISK=/root/mapgen
+MG_HARD_DISK=/home/ghunt/mapgen
+#MG_HARD_DISK=/root/mapgen
 export MG_HARD_DISK
 mkdir -p MG_HARD_DISK
 
@@ -35,3 +36,10 @@ fi
 # for testing, hand generated, in prodution, derived from regions.json
 REGION_LIST=$(cat $MG_SSD/region.list)
 export REGION_LIST
+
+MAP_VERSION=v0.1
+export MAP_VERSION
+
+MAP_DATE=2017-07-03
+export MAP_DATE
+

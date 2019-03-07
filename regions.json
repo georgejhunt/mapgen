@@ -1,122 +1,114 @@
-{"regions": {
-"min":{
-  "west" : "-122.24",
-  "south" : "37.23",
-  "east" : "-121.60",
-  "north" : "37.45",
-  "title" : "No Details",
-  "filename" : "en-osm-omt-min",
-  "url" : "http://download.iiab.io/content/OSM/vector-tiles/en-osm-omt-min.zip",
-  "seq" : 10,
-  "size" : "1497624576"
-},
-"europe":{
-  "west" : "-24.1",
-  "south" : "35.9",
-  "east" : "50.3",
-  "north" : "71.4",
-  "title" : "Europe",
-  "filename" : "en-osm-omt-europe",
-  "url" : "http://download.iiab.io/content/OSM/vector-tiles/en-osm-omt-min.zip",
-  "seq" : 45,
-  "perma_ref" : "en-osm-omt-min",
-  "size" : "54776152064"
-},
-"north_america":{
-  "west" : "-169.3",
-  "south" : "24.7",
-  "east" : "-51.1",
-  "north" : "71.4",
-  "title" : "North America",
-  "filename" : "en-osm-omt-north-america",
-  "url" : "http://download.iiab.io/content/OSM/vector-tiles/en-osm-omt-min.zip",
-  "seq" : 25,
-  "perma_ref" : "en-osm-omt-min",
-  "size" : "54776152064"
-},
-"asia":{
-  "west" : "28.0",
-  "south" : "36.8",
-  "east" : "191",
-  "north" : "77.6",
-  "title" : "Asia",
-  "filename" : "en-osm-omt-asia",
-  "url" : "http://download.iiab.io/content/OSM/vector-tiles/en-osm-omt-min.zip",
-  "seq" : 50,
-  "perma_ref" : "en-osm-omt-min",
-  "size" : "54776152064"
-},
-"world":{
-  "west" : "-180",
-  "south" : "-80",
-  "east" : "180",
-  "north" : "80",
-  "title" : "Detailed World",
-  "filename" : "en-osm-omt-min",
-  "url" : "http://download.iiab.io/content/OSM/vector-tiles/en-osm-omt-min.zip",
-  "seq" : 90,
-  "perma_ref" : "en-osm-omt-min",
-  "size" : "54776152064"
-},
-"south_america":{
-  "west" : "-84.73",
-  "south" : "-60.44",
-  "east" : "-31.61",
-  "north" : "12.72",
-  "title" : "South America",
-  "filename" : "en-osm-omt-south-america",
-  "url" : "http://download.iiab.io/content/OSM/vector-tiles/en-osm-omt-min.zip",
-  "seq" : 20,
-  "perma_ref" : "en-osm-omt-min",
-  "size" : "3112968192"
-},
-"central_america":{
-  "west" : "-119.15",
-  "south" : "7.93",
-  "east" : "-56.99",
-  "north" : "33.03",
-  "title" : "Central America",
-  "filename" : "en-osm-omt-central-america",
-  "url" : "http://download.iiab.io/content/OSM/vector-tiles/en-osm-omt-min.zip",
-  "seq" : 15,
-  "perma_ref" : "en-osm-omt-min",
-  "size" : "430280704"
-},
-"africa":{
-  "west" : "-23.58",
-  "south" : "-39.32",
-  "east" : "63.56",
-  "north" : "38.23",
-  "title" : "Africa",
-  "filename" : "en-osm-omt-africa",
-  "url" : "http://download.iiab.io/content/OSM/vector-tiles/en-osm-omt-min.zip",
-  "seq" : 40,
-  "perma_ref" : "en-osm-omt-min",
-  "size" : "4842811392"
-},
-"southeast_asia":{
-  "west" : "61.33",
-  "south" : "-10.19",
-  "east" : "165.77",
-  "north" : "46.41",
-  "title" : "Southeast Asia",
-  "filename" : "en-osm-omt-southease-asia",
-  "url" : "http://download.iiab.io/content/OSM/vector-tiles/en-osm-omt-min.zip",
-  "seq" : 60,
-  "perma_ref" : "en-osm-omt-min",
-  "size" : "6324658176"
-},
-"australia":{
-  "west" : "106.02",
-  "south" : "-52.84",
-  "east" : "196.56",
-  "north" : "-6.52",
-  "title" : "Australia",
-  "filename" : "en-osm-omt-australia",
-  "url" : "http://download.iiab.io/content/OSM/vector-tiles/en-osm-omt-min.zip",
-  "seq" : 80,
-  "perma_ref" : "en-osm-omt-min",
-  "size" : "1638526976"
-}
-}
+{
+  "regions": {
+    "europe": {
+      "north": "71.4", 
+      "seq": 45, 
+      "title": "Europe", 
+      "url": "http://192.168.123.5/content/maps/2017-07-03_europe_v0.1.zip", 
+      "west": "-24.1", 
+      "perma_ref": "en-osm-omt_europe", 
+      "east": "50.3", 
+      "south": "35.9", 
+      "size": "19816341504"
+    }, 
+    "australia": {
+      "north": "-6.52", 
+      "seq": 80, 
+      "title": "Australia", 
+      "url": "http://192.168.123.5/content/maps/2017-07-03_australia_v0.1.zip", 
+      "west": "106.02", 
+      "perma_ref": "en-osm-omt_australia", 
+      "east": "196.56", 
+      "south": "-52.84", 
+      "size": "2217074688"
+    }, 
+    "min": {
+      "north": "37.45", 
+      "seq": 10, 
+      "title": "No Details", 
+      "url": "http://192.168.123.5/content/maps/2017-07-03_min_v0.1.zip", 
+      "west": "-122.24", 
+      "perma_ref": "en-osm-omt_min", 
+      "east": "-121.60", 
+      "south": "37.23", 
+      "size": "622768128"
+    }, 
+    "south_america": {
+      "north": "12.72", 
+      "seq": 20, 
+      "title": "South America", 
+      "url": "http://192.168.123.5/content/maps/2017-07-03_south_america_v0.1.zip", 
+      "west": "-84.73", 
+      "perma_ref": "en-osm-omt_south_america", 
+      "east": "-31.61", 
+      "south": "-60.44", 
+      "size": "3670228992"
+    }, 
+    "africa": {
+      "north": "38.23", 
+      "seq": 40, 
+      "title": "Africa", 
+      "url": "http://192.168.123.5/content/maps/2017-07-03_africa_v0.1.zip", 
+      "west": "-23.58", 
+      "perma_ref": "en-osm-omt_africa", 
+      "east": "63.56", 
+      "south": "-39.32", 
+      "size": "5378187264"
+    }, 
+    "asia": {
+      "north": "77.6", 
+      "seq": 50, 
+      "title": "Asia", 
+      "url": "http://192.168.123.5/content/maps/2017-07-03_asia_v0.1.zip", 
+      "west": "28.0", 
+      "perma_ref": "en-osm-omt_asia", 
+      "east": "191", 
+      "south": "36.8", 
+      "size": "9117261824"
+    }, 
+    "central_america": {
+      "north": "33.03", 
+      "seq": 15, 
+      "title": "Central America", 
+      "url": "http://192.168.123.5/content/maps/2017-07-03_central_america_v0.1.zip", 
+      "west": "-119.15", 
+      "perma_ref": "en-osm-omt_central_america", 
+      "east": "-56.99", 
+      "south": "7.93", 
+      "size": "2547736576"
+    }, 
+    "southeast_asia": {
+      "north": "46.41", 
+      "seq": 60, 
+      "title": "Southeast Asia", 
+      "url": "http://192.168.123.5/content/maps/2017-07-03_southeast_asia_v0.1.zip", 
+      "west": "61.33", 
+      "perma_ref": "en-osm-omt_southeast_asia", 
+      "east": "165.77", 
+      "south": "-10.19", 
+      "size": "6826491904"
+    }, 
+    "world": {
+      "north": "80", 
+      "seq": 90, 
+      "title": "Detailed World", 
+      "url": "http://192.168.123.5/content/maps/2017-07-03_world_v0.1.zip", 
+      "west": "-180", 
+      "perma_ref": "en-osm-omt_world", 
+      "east": "180", 
+      "south": "-80", 
+      "size": "54776152064"
+    }, 
+    "north_america": {
+      "north": "71.4", 
+      "seq": 25, 
+      "title": "North America", 
+      "url": "http://192.168.123.5/content/maps/2017-07-03_north_america_v0.1.zip", 
+      "west": "-169.3", 
+      "perma_ref": "en-osm-omt_north_america", 
+      "east": "-51.1", 
+      "south": "24.7", 
+      "size": "11561041920"
+    }
+  }
 }
