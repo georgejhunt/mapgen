@@ -27,8 +27,8 @@ if [ ! -d $MG_SSD/babel/node_modules ];then
   cd $MG_SSD/babel
   npm init -y
   npm install --save-dev babel-cli
-  mkdir -p ../src ../dest
-  sed -i /.*test.*/a\      "build": "babel ../src ../dest" $MG_SSD/babel/package.json
+  mkdir -p ../src ../build
+  sed -i 's/.*test.*/    "build": "babel --presets es2015 ..\/src ..\/build"/' $MG_SSD/babel/package.json
   npm install --save-dev babel-preset-env 
   cat <<EOF >$MG_SSD/.babelrc
 {
@@ -44,12 +44,13 @@ if [ ! -d "$MG_SSD/pack/node_modules" ];then
   mkdir -p $MG_SSD/pack
   cd $MG_SSD/pack
   npm init -y
-  npm install --save-dev webpack babel-loader
+  npm install --save-dev webpack babel-loader webpack-dev-server webpack-cli
+  npm install --save-dev babel-preset-env copy-webpack-plugin
+  npm install --save-dev html-webpack-plugin
 # add the following to package.json
-  sed -i /.*test.*/a\      
-    "babel": "babel --presets es2015 ../src/main.js -o ../dest/main.bundle.js",
-    "start": "http-server",
-    "webpack": "webpack" $MG_SSD/babel/package.json
+  sed -i 's/.*test.*/"babel": "babel --presets es2015 ..\/src\/main.js -o ..\/build\/main.bundle.js",\
+     "start": "webpack-dev-server --mode=development",\
+     "build": "webpack --mode=production"/' $MG_SSD/pack/package.json
 
     cat <<'EOF' >$MG_SSD/pack/webpack.config.js
  var path = require('path');
@@ -58,7 +59,7 @@ if [ ! -d "$MG_SSD/pack/node_modules" ];then
  module.exports = {
      entry: '../src/map.js',
      output: {
-         path: path.resolve(__dirname, '../dest/build'),
+         path: path.resolve(__dirname, '../build'),
          filename: 'map.bundle.js'
      },
      module: {
@@ -96,5 +97,5 @@ if [ ! -d $MG_SSD/tilelive/node_modules ]; then
 fi
 # create the csv file which is the spec for the regional extract stage2
 $MG_SSD/mkcsv.py
-$MG_SSD/mkjson.py > $MG_HARD_DISK/bboxes.geojson
+$MG_SSD/mkjson.py > $MG_SSD/build/bboxes.geojson
 

@@ -4,11 +4,13 @@
 from geojson import Feature, Point, FeatureCollection, Polygon
 import geojson
 import json
+import os
 
 
 def main():
    features = []
-   with open('regions.json','r') as regions:
+   input_json = os.environ['MG_SSD'] + '/regions.json'
+   with open(input_json,'r') as regions:
       reg_str = regions.read()
       info = json.loads(reg_str)
    #print(json.dumps(info,indent=2))
