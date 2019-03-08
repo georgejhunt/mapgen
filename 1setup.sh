@@ -53,31 +53,39 @@ if [ ! -d "$MG_SSD/pack/node_modules" ];then
      "build": "webpack --mode=production"/' $MG_SSD/pack/package.json
 
     cat <<'EOF' >$MG_SSD/pack/webpack.config.js
- var path = require('path');
- var webpack = require('webpack');
+const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
+const HtmlPlugin = require('html-webpack-plugin');
 
- module.exports = {
-     entry: '../src/map.js',
-     output: {
-         path: path.resolve(__dirname, '../build'),
-         filename: 'map.bundle.js'
-     },
-     module: {
-         loaders: [
-             {
-                 test: /\.js$/,
-                 loader: 'babel-loader',
-                 query: {
-                     presets: ['es2015']
-                 }
-             }
-         ]
-     },
-     stats: {
-         colors: true
-     },
-     devtool: 'source-map'
- };
+module.exports = {
+  entry: '../src/main.js',
+  output: {
+    path: path.resolve(__dirname, 'build'),
+    filename: 'main.js'
+  },
+  devtool: 'source-map',
+  devServer: {
+    host: '0.0.0.0',
+    port: 3001,
+    clientLogLevel: 'none',
+    //stats: 'verbose'
+    stats: 'errors-only'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      }
+    ]
+  },
+  plugins: [
+    new CopyPlugin([{from: '../src/assets', to: 'assets'}]),
+    new HtmlPlugin({
+      template: '../src/index.html'
+    })
+  ]
+};
 EOF
 # http://ccoenraets.github.io/es6-tutorial/setup-webpack/
 fi
