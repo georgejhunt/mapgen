@@ -10,7 +10,7 @@ fi
 
 # the following script downloads all the resources to start3/fromscratch
 if [ ! -d $MG_HARD_DISK/stage3/fromscratch ];then
-	$MG_SSD/mk_osm_min
+	$MG_SSD/mk-osm-min
 fi
 
 # when done move the build directory out of the way

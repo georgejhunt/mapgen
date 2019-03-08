@@ -25,9 +25,6 @@ if [ ! -d maps ]; then
 git clone https://github.com/iiab/maps
 fi
 cp -rp maps/* ..
-if [ ! -d "www.openmaptiles.org" ]; then
-git clone https://github.com/openmaptiles/www.openmaptiles.org
-fi
 if [ ! -d "openlayers" ]; then
 git clone https://github.com/openlayers/openlayers
 fi
@@ -44,10 +41,10 @@ if [ ! -d "osm-bright-gl-style" ]; then
 git clone git://github.com/openmaptiles/osm-bright-gl-style --branch gh-pages
 fi
 
-cp $prefix/build/www.openmaptiles.org/maps/olms.js $prefix/assets
-wget -P $prefix/assets https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.js
+wget -P $prefix/assets https://unpkg.com/ol-mapbox-style@3.6.2/dist/olms.js
+wget -P $prefix/assets https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v5.3.0/build/ol.js
 
-wget -P $prefix/assets https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.css
+wget -P $prefix/assets https://github.com/openlayers/openlayers.github.io/tree/master/en/v5.3.0/build/ol.css
  
 pushd jquery
 if [ ! -f dist/jquery.min.js ]; then
@@ -88,6 +85,7 @@ cp cities1000.sqlite ..
 if [ ! -f ocean.mbtiles ]; then
 wget  http://download.iiab.io/packages/OSM/ocean.mbtiles
 fi
+cp ocean.mbtiles ..
 
 
 cp $prefix/build/osm-bright-gl-style/sprite* $prefix/assets
