@@ -44,7 +44,7 @@ fi
 wget -P $prefix/assets https://unpkg.com/ol-mapbox-style@3.6.2/dist/olms.js
 wget -P $prefix/assets https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v5.3.0/build/ol.js
 
-wget -P $prefix/assets https://github.com/openlayers/openlayers.github.io/tree/master/en/v5.3.0/build/ol.css
+wget -P $prefix/assets https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v5.3.0/css/ol.css
  
 pushd jquery
 if [ ! -f dist/jquery.min.js ]; then

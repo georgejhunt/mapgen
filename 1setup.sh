@@ -46,10 +46,10 @@ if [ ! -d "$MG_SSD/pack/node_modules" ];then
   npm init -y
   npm install --save-dev webpack babel-loader
 # add the following to package.json
-#"scripts": {
-#    "babel": "babel --presets es2015 js/main.js -o build/main.bundle.js",
-#    "start": "http-server",
-#    "webpack": "webpack"
+  sed -i /.*test.*/a\      
+    "babel": "babel --presets es2015 ../src/main.js -o ../dest/main.bundle.js",
+    "start": "http-server",
+    "webpack": "webpack" $MG_SSD/babel/package.json
 
     cat <<'EOF' >$MG_SSD/pack/webpack.config.js
  var path = require('path');
