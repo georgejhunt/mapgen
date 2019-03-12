@@ -1,0 +1,6 @@
+zoom_level|max(tile_row)|min(tile_row)|max(tile_column)|min(tile_column)|count(zoom_level)
+10|627|626|166|164|6
+11|1254|1252|332|328|15
+12|2508|2504|664|657|40
+13|5016|5009|1328|1314|120
+14|10032|10019|2657|2628|420
