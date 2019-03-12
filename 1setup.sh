@@ -47,6 +47,7 @@ if [ ! -d "$MG_SSD/pack/node_modules" ];then
   npm install --save-dev webpack babel-loader webpack-dev-server webpack-cli
   npm install --save-dev babel-preset-env copy-webpack-plugin
   npm install --save-dev html-webpack-plugin
+  npm install --save-dev ol-mapbox-style ol babel/core
 # add the following to package.json
   sed -i 's/.*test.*/"babel": "babel --presets es2015 ..\/src\/main.js -o ..\/build\/main.bundle.js",\
      "start": "webpack-dev-server --mode=development",\
