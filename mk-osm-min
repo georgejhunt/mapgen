@@ -59,6 +59,7 @@ cp $prefix/build/bootstrap/dist/css/bootstrap.min.css $prefix/assets
 cp $prefix/build/bootstrap-ajax-typeahead/js/bootstrap-typeahead.min.js $prefix/assets/
 
 
+function dummy(){
 # generate the fonts for offline use
 if [ ! -d fonts ];then
 git clone https://github.com/openmaptiles/fonts
@@ -68,6 +69,7 @@ npm install
 node ./generate.js
 fi
 cp -r $prefix/build/fonts/_output/* $prefix/assets/fonts
+}
 
 # get the cities sqlite database
 cd $prefix/build

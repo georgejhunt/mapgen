@@ -9,8 +9,10 @@ if [ "$MG" == "" ];then
 fi
 
 # set up the output/input directors for pipeline
-mkdir -p $MG_HARD_DISK/output/stage1
-mkdir -p $MG_HARD_DISK/output/stage2
+# all steps including generation of extracts done on SSD
+mkdir -p $MG_SSD/output/stage1
+mkdir -p $MG_SSD/output/stage2
+# for stage3 and following, use hard disk
 mkdir -p $MG_HARD_DISK/output/stage3
 mkdir -p $MG_HARD_DISK/output/stage4
 

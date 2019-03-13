@@ -8,14 +8,27 @@ if [ "$MG" == "" ];then
    exit 1
 fi
 
+# copy the extracted mbtiles to the $MG_HARD_DISK, perhaps free up MG_SSD
+for EXTRACT in $(ls $MG_SSD/output/stage2/*.mbtiles); do
+   if [ ! -f $MG_HARD_DISK/output/stage3/$EXTRACT ]; then
+      cp -f $MG_SSD/output/stage2/$EXTRACT $MG_HARD_DISK/output/stage3/$EXRACT
+   fi
+   # Free up SSD if flag is set
+   if [ "$FREE_SSD" ==  'true' ]; then
+      rm -f $EXTRACT
+      touch $EXTRACT
+   fi
+done
+
+
 # the following script downloads all the resources to start3/fromscratch
-if [ ! -d $MG_HARD_DISK/stage3/fromscratch ];then
+if [ ! -d $MG_HARD_DISK/output/stage3/fromscratch ];then
 	$MG_SSD/mk-osm-min
 fi
 
 # when done move the build directory out of the way
-if [ -d $MG_HARD_DISK/stage3/fromscratch/build ]; then
-   mv $MG_HARD_DISK/stage3/fromscratch/build $MG_HARD_DISK/stage3/
+if [ -d $MG_HARD_DISK/output/stage3/fromscratch/build ]; then
+   mv $MG_HARD_DISK/output/stage3/fromscratch/build $MG_HARD_DISK/output/stage3/
 fi
  
 # use python to read the mbtiles metadata, and update regions.json

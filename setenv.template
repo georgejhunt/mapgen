@@ -11,15 +11,16 @@ export MG_SSD
 mkdir -p MG_SSD
 
 # where to put large files
+#MG_HARD_DISK=/mnt/ssd/ghunt/mapgen
 MG_HARD_DISK=/home/ghunt/mapgen
 #MG_HARD_DISK=/root/mapgen
 export MG_HARD_DISK
 mkdir -p MG_HARD_DISK
 
-PLANET_MBTILES=$MG_HARD_DISK/output/2017-07-03_planet_z0_z14.mbtiles
+PLANET_MBTILES=$MG_SSD/output/stage2/2017-07-03_planet_z0_z14.mbtiles
 export PLANET_MBTILES
 
-CSV_FILE=$MG_HARD_DISK/output/stage1/iiab.csv
+CSV_FILE=$MG_SSD/output/stage1/iiab.csv
 export CSV_FILE
 
 BASE_ZOOM="9"
@@ -43,3 +44,9 @@ export MAP_VERSION
 MAP_DATE=2017-07-03
 export MAP_DATE
 
+MAP_DL_URL='http://192.168.123.5/content/maps'
+export MAP_DL_URL
+
+#FREE_SSD=true
+FREE_SSD=false
+export FREE_SSD

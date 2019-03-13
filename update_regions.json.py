@@ -15,8 +15,10 @@ region_list = []
 with open(REGION_INFO,'r') as region_fp:
    data = json.loads(region_fp.read())
    for region in data['regions'].keys():
-      conn = sqlite3.connect(os.path.join(MG_HARD_DISK,
-			'output',region+'.mbtiles'))
+      mbtile = os.path.join(MG_HARD_DISK,'output',region+'.mbtiles')
+      if not os.path.isfile(mbtile):
+         mbtile = os.path.join(MG_SSD,'output',region+'.mbtiles')
+      conn = sqlite3.connect(mbtile)
       c = conn.cursor()
       sql = 'select value from metadata where name = "filesize"'
       try:
@@ -28,8 +30,9 @@ with open(REGION_INFO,'r') as region_fp:
       if row:
          data['regions'][region]['size'] = row[0]
       data['regions'][region]['perma_ref'] = 'en-osm-omt_' + region
-      data['regions'][region]['url'] = 'http://192.168.123.5/content/maps/'\
-		 + 'en-osm-omt_' + region + '_'\
+      download_url = os.environ['MAP_DL_URL']
+      data['regions'][region]['url'] = download_url\
+		 + '/en-osm-omt_' + region + '_'\
 		 + os.environ.get("MAP_VERSION",'v0.9') + '.zip'
    outstr = json.dumps(data,indent=2) 
    print(outstr)
