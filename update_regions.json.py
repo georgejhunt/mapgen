@@ -1,5 +1,5 @@
 #!/usr/bin/env  python
-# Output the regions in regions.json
+# read mbtiles metada and update regions.json
 
 import os,sys
 import json

@@ -1,5 +1,6 @@
 #!/bin/bash -x
-# Set up babel and webpack
+# Set up babel, webpack, tilelive-copy, extract programs, mk diretories, config
+# The setenv.template is a model, -- setenv is not overriden, must handcode it
 
 # first check that the environment has been set
 MG=${MG_SSD}
