@@ -1,0 +1,15 @@
+./1setup.sh -- # Set up babel, webpack, tilelive-copy, extract programs, mk diretories, config
+./2extract.sh -- # stimulate the openmaptiles/extracts to generate extracts
+./3assemble.sh -- # Recreate the map source bundle, and merge in the regional vector subsets
+./4publish.sh -- # Zip up the bundles and transfer them to location where they will be published
+./README.md -- ##### Objectives #####
+./comment.py -- # print second (purpose) line in each file in this directory
+./mk-osm-min -- # fetch updated copies of resources needed for vector OSM
+./mk_map_packages.py -- # Output the regions in regions.json
+./mk_region_list.py -- # Output the regions in regions.json
+./mkcsv.py -- # create csv file as expected by openmaptiles/extract
+./mkjson.py -- # create spec for bounding boxes used in IIAB vector map subsets
+./setenv -- # set the environment for mapgen -- not in git -- sets environment variables
+./setenv.template -- # Copy this to setenv, and change for the SSD and HARD_DISK paths
+./temp -- # when done move the build directory out of the way
+./update_regions.json.py -- # read mbtiles metada and update regions.json
