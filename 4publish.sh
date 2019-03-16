@@ -9,12 +9,14 @@ if [ "$MG" == "" ];then
 fi
 
 URL_TARGET=$MAP_DL_URL
-pushd $MG_HARD_DISK/output/
-for package in $(ls stage4*); do
+pushd $MG_HARD_DISK/output/stage4
+for package in $(ls -d *); do
    echo $package|grep zip
    if [ $? -eq 0 ];then continue; fi
-   if [ $(ls $package.zip ) -ne 0 ]; then
-      zip -ry ${package}.zip $package
+   ls $package.zip 
+   if [ $? -ne 0 ]; then
+      zip -ry ${package}.zip $package/
+      md5sum ${package}.zip > $package.zip.md5
    fi   
    resp=$(curl -s --head http://$URL_TARGET/$package.zip | grep HTTP | cut -d' ' -f2)
    case $resp in
